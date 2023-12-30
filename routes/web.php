@@ -32,4 +32,7 @@ Route::middleware(['auth'])->prefix('user')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/shorten', [DashboardController::class, 'shorten'])->name('dashboard.shorten');
     Route::post('/dashboard/shorten', [DashboardController::class, 'short_url']);
+    Route::get('dashboard/{url}', [DashboardController::class, 'edit'])->name('url.edit');
+    Route::put('/dashboard/{url}', [DashboardController::class, 'update'])->name('url.update');
+    Route::delete('/dashboard/{url}', [DashboardController::class, 'destroy'])->name('url.destroy');
 });
